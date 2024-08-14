@@ -1,27 +1,52 @@
+import { Link, NavLink } from "react-router-dom"
 
 
 export const Navbar = () => {
+
+
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-light text-black">
-                <div className="collapse navbar-collapse">
-                    <ul className="navbar-nav">
-                        <li className="nav-item m-2">
-                            <button className="btn btn-danger"><h4>Inicio</h4></button>
+            <div className="container-fluid text-white bg-light">
+                <div className="row">
 
-                        </li>
-                        <li className="nav-item">
+                    <div className="col-6 text-start">
+                        <div className="container">
+                            <div className="row d-flex justify-content-start">
+                                <div className="col-auto p-2">
 
-                        </li>
-                        <li className="nav-item">
+                                    <button className="btn btn-danger"><h4>Inicio</h4></button>
 
-                        </li>
-                        <li className="nav-item">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        </li>
-                    </ul>
+                    <div className="col-6 text-end">
+                        <div className="container">
+                            <div className="row d-flex justify-content-end">
+                                <div className="col-auto p-2">
+
+                                    <button className="btn btn-danger">
+                                        <h4><i className="bi bi-cart"></i></h4>
+                                    </button>
+
+                                </div>
+                                <div className="col-auto p-2">
+
+                                    <Link to="/auth/login">
+                                        <button className="btn btn-danger">
+                                            <h4><i className="bi bi-box-arrow-right"></i></h4>
+                                        </button>
+                                    </Link>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </nav>
+            </div>
+
         </>
     )
 }
