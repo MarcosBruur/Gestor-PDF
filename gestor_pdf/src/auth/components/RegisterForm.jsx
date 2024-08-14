@@ -1,16 +1,22 @@
 import { useForm } from 'react-hook-form'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { registerUser } from '../../store'
+
 
 
 export const RegisterForm = () => {
 
-    const user = useSelector((state) => state.auth)
-
     const { register, handleSubmit, formState: { errors } } = useForm()
 
+    const dispatch = useDispatch()
+
     const onSubmit = handleSubmit((data) => {
-        console.log(data)
+
+        if (data.password !== data.repeat_password) return
+        dispatch(registerUser({
+            email: data.email,
+            password: data.password
+        }))
     })
 
     return (
@@ -56,16 +62,26 @@ export const RegisterForm = () => {
                         placeholder="tu contraseña" />
                     {errors.password && <span className='text-danger'>{errors.password.message}</span>}
                 </div>
+                <div className="mb-3">
+                    <label className="fw-bold mb-1">Repetir Contraseña</label>
+                    <input
+                        {...register("repeat_password",
+                            {
+                                required: {
+                                    value: true,
+                                    message: 'La contraseña es requerida'
+                                }
+                            })}
+                        type="password"
+                        className="form-control"
+                        placeholder="tu contraseña" />
+                    {errors.password && <span className='text-danger'>{errors.password.message}</span>}
+                </div>
                 <div className='d-flex flex-column mt-4'>
                     <button className='btn btn-outline-danger'>Registrarse</button>
                 </div>
 
             </form>
-            <div className='mt-2'>
-                <h5>¿Ya tienes cuenta?</h5>
-            </div>
-
-            <Link to='/auth/login'>Iniciar Sesion</Link>
 
         </>
     )

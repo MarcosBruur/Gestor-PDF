@@ -1,15 +1,22 @@
 import { useForm } from 'react-hook-form'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { loginUser } from '../../store/authSlice'
 
 export const LoginForm = () => {
 
-    const user = useSelector((state) => state.auth)
 
     const { register, handleSubmit, formState: { errors } } = useForm()
 
+
+    const dispatch = useDispatch()
+
+
     const onSubmit = handleSubmit((data) => {
-        console.log(data)
+        dispatch(loginUser({
+            email: data.email,
+            password: data.password
+        }))
+
     })
 
     return (
@@ -58,11 +65,6 @@ export const LoginForm = () => {
 
 
             </form>
-            <div className='mt-2'>
-                <h5>¿No tienes cuenta?</h5>
-            </div>
-
-            <Link to='/auth/register'>Registrarse</Link>
 
         </>
     )
