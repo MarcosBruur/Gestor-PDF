@@ -4,6 +4,7 @@ import { LoginForm } from "../components"
 
 export const LoginPage = () => {
 
+
     return (
         <>
             <div className="container h-100">
@@ -15,6 +16,7 @@ export const LoginPage = () => {
                         <div className='mt-2'>
                             <h5>¿No tienes cuenta?</h5>
                             <h4><Link to='/auth/register'>Registrarse</Link></h4>
+
                         </div>
                     </div>
                 </div>

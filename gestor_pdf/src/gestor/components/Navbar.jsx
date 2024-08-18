@@ -1,6 +1,12 @@
+import { useDispatch } from "react-redux"
+import { logoutUser } from "../../store"
 
 
 export const Navbar = () => {
+    const dispatch = useDispatch()
+    const logout = () => {
+        dispatch(logoutUser())
+    }
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-light text-black">
@@ -11,7 +17,9 @@ export const Navbar = () => {
 
                         </li>
                         <li className="nav-item">
-
+                            <button onClick={logout} className="btn btn-danger">
+                                <h4>Salir</h4>
+                            </button>
                         </li>
                         <li className="nav-item">
 
