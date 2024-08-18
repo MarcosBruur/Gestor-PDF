@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../store/authSlice'
+import { ValidarUsuario } from '../../store'
 
 export const LoginForm = () => {
 
@@ -12,7 +13,7 @@ export const LoginForm = () => {
 
 
     const onSubmit = handleSubmit((data) => {
-        dispatch(loginUser({
+        dispatch(ValidarUsuario({
             email: data.email,
             password: data.password
         }))
