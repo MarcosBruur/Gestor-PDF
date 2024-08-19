@@ -2,15 +2,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import { addUser, getAllUsers } from "../../api/users.api"
 
 
-
 export const ValidarUsuario = createAsyncThunk(
     'auth/ValidarUsuario',
     async ({ email, password }, thunkAPI) => {
-        console.log(email, password)
 
-        const resp = await getAllUsers(); // Obtener la lista de usuarios
+        const resp = await getAllUsers();
         const usuarioEncontrado = resp.find(user => user.email === email && user.password === password);
-
         if (usuarioEncontrado) {
             return usuarioEncontrado
         } else {

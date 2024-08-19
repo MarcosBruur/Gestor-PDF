@@ -1,16 +1,18 @@
 import { useForm } from 'react-hook-form'
-
+import { useDispatch } from 'react-redux'
+import { addInCart } from '../store/gestorSlice'
+import { AgregarArchivo } from '../store/Thunks'
 
 
 export const InputPDF = () => {
 
     const { register, handleSubmit } = useForm()
 
-
+    const dispatch = useDispatch()
 
 
     const onSubmit = handleSubmit((data) => {
-
+        dispatch(AgregarArchivo(data))
     })
     return (
         <>
