@@ -21,15 +21,6 @@ export const authSlice = createSlice({
             const { email, password } = action.payload;
             AgregarUsuario(email, password)
         },
-        loginUser: (state, action) => {
-            const { email, password } = action.payload;
-            console.log(ValidarUsuario(email, password))
-            if (!ValidarUsuario(email, password)) {
-                return
-            }
-            state.email = email;
-            state.password = password;
-        },
         logoutUser: (state) => {
             state.user_name = '';
             state.email = '';
@@ -60,6 +51,6 @@ export const authSlice = createSlice({
 })
 
 
-export const { loginUser, registerUser, logoutUser } = authSlice.actions
+export const { registerUser, logoutUser } = authSlice.actions
 
 export default authSlice.reducer

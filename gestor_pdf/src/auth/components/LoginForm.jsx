@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { loginUser } from '../../store/authSlice'
 import { ValidarUsuario } from '../../store'
 
 export const LoginForm = () => {
