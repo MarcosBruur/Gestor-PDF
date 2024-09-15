@@ -1,56 +1,102 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { AgregarUsuario, ValidarUsuario } from './Thunks';
-
+import { loginUser,registerUser,logoutUser, get_cookie } from './Thunks';
 
 
 const initialState = {
     email: '',
-    password: '',
-    user_name: '',
+    user_name:'',
     is_loading: false,
     error: null,
     isAuthenticated: false,
 }
 
-
 export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        registerUser: (state, action) => {
-            const { email, password } = action.payload;
-            AgregarUsuario(email, password)
-        },
-        logoutUser: (state) => {
-            state.user_name = '';
-            state.email = '';
-            state.password = '';
-            state.isAuthenticated = false;
-        }
     },
     extraReducers: (builder) => {
         builder
-            .addCase(ValidarUsuario.pending, (state) => {
+            .addCase(loginUser.pending, (state) => {
                 state.is_loading = true;
                 state.error = null;
                 state.isAuthenticated = false;
             })
-            .addCase(ValidarUsuario.fulfilled, (state, action) => {
-                const { email, password, user_name } = action.payload;
-                state.is_loading = false;
-                state.user_name = user_name;
-                state.email = email;
-                state.password = password;
-                state.isAuthenticated = true;
+            .addCase(loginUser.fulfilled, (state, action) => {   
+                const status = action.payload.resp
+                const {email} = action.payload.userData
+                if (status === 404){
+                    state.isAuthenticated = false;
+                    state.is_loading = false;
+                    state.error = 'email o contraseña incorrectos'
+                    return
+                }else{
+                    state.user_name = email;
+                    state.email =email;
+                    state.is_loading = false;
+                    state.isAuthenticated = true;
+                }
+                   
+               
             })
-            .addCase(ValidarUsuario.rejected, (state) => {
+            .addCase(loginUser.rejected, (state) => {
                 state.is_loading = false;
                 state.isAuthenticated = false;
+                state.error = null
+                
+            })
+            .addCase(registerUser.pending,(state)=>{
+                state.is_loading = true;
+                state.error = null;
+                state.isAuthenticated = false;
+            })
+            .addCase(registerUser.fulfilled,(state) =>{
+                state.is_loading = false;
+                state.error = null
+            })
+            .addCase(registerUser.rejected,(state) =>{
+                state.is_loading = false;
+                state.isAuthenticated = false;
+                state.error = null
+            })
+            .addCase(logoutUser.pending,(state)=>{
+                state.is_loading = true;
+                state.error = null;
+                state.isAuthenticated = true;
+            })
+            .addCase(logoutUser.fulfilled,(state)=>{
+                state.is_loading = false;
+                state.error = null;
+                state.isAuthenticated = false;
+                state.user_name = '';
+                state.email = '';
+                state.password = '';
+            })
+            .addCase(logoutUser.rejected,(state)=>{
+                state.is_loading = false;
+                state.error = null;
+                state.isAuthenticated = false;
+            })
+            .addCase(get_cookie.pending,(state)=>{
+                state.is_loading = true;
+                state.error = null;
+                state.isAuthenticated = false;
+            })
+            .addCase(get_cookie.fulfilled,(state,action)=>{
+                const {name,email} = action.payload
+                state.user_name = name;
+                state.email = email;
+                state.isAuthenticated = true;
+                state.error = false;
+
+            })
+            .addCase(get_cookie.rejected,(state) =>{
+                console.log('fallo al traer user en cookie')
             })
     }
 })
 
 
-export const { registerUser, logoutUser } = authSlice.actions
+//export const { logoutUser } = authSlice.actions
 
 export default authSlice.reducer

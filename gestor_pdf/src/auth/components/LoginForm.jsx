@@ -1,24 +1,26 @@
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
-import { ValidarUsuario } from '../../store'
+import { useDispatch} from 'react-redux'
+import { get_cookie, loginUser } from '../../store'
+import { useEffect } from 'react'
+
+
 
 export const LoginForm = () => {
 
 
     const { register, handleSubmit, formState: { errors } } = useForm()
-
+    
 
     const dispatch = useDispatch()
 
-
     const onSubmit = handleSubmit((data) => {
-        dispatch(ValidarUsuario({
+        const userData = {
             email: data.email,
             password: data.password
-        }))
-
+        }
+       
+        dispatch(loginUser(userData))
     })
-
     return (
         <>
 

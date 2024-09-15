@@ -1,22 +1,52 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import { addUser, getAllUsers } from "../../api/users.api"
+import { register,login, logout, getcookie } from "../../api/users.api"
 
 
-export const ValidarUsuario = createAsyncThunk(
-    'auth/ValidarUsuario',
-    async ({ email, password }, thunkAPI) => {
 
-        const resp = await getAllUsers();
-        const usuarioEncontrado = resp.find(user => user.email === email && user.password === password);
-        if (usuarioEncontrado) {
-            return usuarioEncontrado
-        } else {
-            return thunkAPI.rejectWithValue('Credenciales incorrectas');
+
+export const loginUser = createAsyncThunk(
+    'auth/loginUser',
+    async (userData, thunkAPI) => {
+
+        try{
+            const resp = await login(userData) 
+            
+            return {resp,userData}
+        }catch(e){
+            return thunkAPI.rejectWithValue('Credenciales incorrectas')
         }
     }
 )
-export const AgregarUsuario = async (email, password) => {
+export const registerUser = createAsyncThunk(
+    'auth/registerUser',
+    async (userData) => {
+    
+        const resp = await register(userData)
+        if (!resp) return false
+    }
+)
 
-    const resp = await addUser({ email, password })
-    if (!resp) return false
-}
+export const logoutUser = createAsyncThunk(
+    'auth/logoutUser',
+    async (thunkAPI) =>{
+        try{
+            const resp = await logout()
+            return resp
+        }catch(e){
+            return thunkAPI.rejectWithValue('Credenciales incorrectas')
+        }
+    }
+)
+
+export const get_cookie = createAsyncThunk(
+    'auth/get_cookie',
+    async(thunkAPI) =>{
+        try{
+            const resp = await getcookie()
+            return resp
+        }catch(error){
+            return thunkAPI.rejectWithValue('No hay user')
+        }
+    }
+)
+

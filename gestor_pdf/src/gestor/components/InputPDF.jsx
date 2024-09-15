@@ -12,8 +12,24 @@ export const InputPDF = () => {
 
 
     const onSubmit = handleSubmit((data) => {
-        dispatch(AgregarArchivo(data))
-    })
+
+        const formData = new FormData()
+        formData.append('pdf_file', data.file[0])
+        fetch('http://localhost:8000/users/api/v1/files/', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(text) });
+                }
+                return response.json();
+            })
+            .then(result => console.log(result))
+            .catch(error => console.error('Error:', error));
+    }
+        //dispatch(AgregarArchivo(formData))
+    )
     return (
         <>
             <div className="container mt-5 text-center">

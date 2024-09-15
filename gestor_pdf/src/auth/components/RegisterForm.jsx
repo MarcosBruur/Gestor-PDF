@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import { registerUser } from '../../store'
+import { registerUser } from '../store/Thunks'
+
 
 
 
@@ -10,13 +11,16 @@ export const RegisterForm = () => {
 
     const dispatch = useDispatch()
 
-    const onSubmit = handleSubmit((data) => {
 
+    const onSubmit = handleSubmit((data) => {
         if (data.password !== data.repeat_password) return
-        dispatch(registerUser({
+        const userData = {
+            name : data.name,
             email: data.email,
             password: data.password
-        }))
+        }
+        dispatch(registerUser( userData))
+        
     })
 
     return (
@@ -25,6 +29,22 @@ export const RegisterForm = () => {
 
             <form onSubmit={onSubmit}>
                 <div className="mb-3">
+
+                    <label className='fw-bold mb-1'>Name</label>
+                    <input 
+                    {...register("name",
+                        {
+                            required:{
+                                value:true,
+                                message: 'El nombre es requerido'
+                            }
+                        }
+                    )}
+                    type="text"
+                    className='form-control'
+                    placeholder='Tu nombre' 
+                    />
+                    {errors.name && <span className='text-danger'>{errors.name.message}</span>}
                     <label className="fw-bold mb-1">Email</label>
                     <input
                         {...register("email",

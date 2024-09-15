@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom"
 import { LoginForm } from "../components"
+import { useSelector } from "react-redux"
 
 
 export const LoginPage = () => {
-
+    const {error} = useSelector(state => state.auth)
 
     return (
         <>
@@ -16,8 +17,11 @@ export const LoginPage = () => {
                         <div className='mt-2'>
                             <h5>¿No tienes cuenta?</h5>
                             <h4><Link to='/auth/register'>Registrarse</Link></h4>
-
                         </div>
+                        {error && <div className='mt-2 text-danger'>
+                            <h5>Error: {error}</h5> {/* Mostrar el mensaje de error */}
+                        </div>}
+   
                     </div>
                 </div>
             </div>
