@@ -21,7 +21,7 @@ export const login = (user) =>{
     })
         .then((response) =>{return response.data})
         .catch((error) =>{
-            return error.response.status
+            return console.error(error.message)
         })
 } 
 
@@ -37,10 +37,10 @@ export const logout = () =>{
 
 export const getcookie = () =>{
     return axios.get('http://localhost:8000/api/v1/users/getcookie/', {
-        withCredentials: true  // Asegúrate de que las cookies se envíen con la solicitud
+        withCredentials: true 
     })
         .then((response) => {return response.data})
-        .catch((error) => { console.log(error.response)});
+        .catch((error) => { console.error(error.message)});
 }
 
 

@@ -23,21 +23,18 @@ export const authSlice = createSlice({
                 state.isAuthenticated = false;
             })
             .addCase(loginUser.fulfilled, (state, action) => {   
-                const status = action.payload.resp
-                const {email} = action.payload.userData
-                if (status === 404){
+                if (!action.payload){
                     state.isAuthenticated = false;
                     state.is_loading = false;
                     state.error = 'email o contraseña incorrectos'
                     return
-                }else{
-                    state.user_name = email;
-                    state.email =email;
-                    state.is_loading = false;
-                    state.isAuthenticated = true;
                 }
-                   
-               
+                const {email,name} = action.payload
+                state.user_name = name;
+                state.email =email;
+                state.is_loading = false;
+                state.isAuthenticated = true;
+                        
             })
             .addCase(loginUser.rejected, (state) => {
                 state.is_loading = false;
@@ -90,7 +87,7 @@ export const authSlice = createSlice({
                 state.error = false;
 
             })
-            .addCase(get_cookie.rejected,(state) =>{
+            .addCase(get_cookie.rejected,() =>{
                 console.log('fallo al traer user en cookie')
             })
     }

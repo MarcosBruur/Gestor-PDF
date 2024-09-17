@@ -11,7 +11,7 @@ export const loginUser = createAsyncThunk(
         try{
             const resp = await login(userData) 
             
-            return {resp,userData}
+            return resp
         }catch(e){
             return thunkAPI.rejectWithValue('Credenciales incorrectas')
         }

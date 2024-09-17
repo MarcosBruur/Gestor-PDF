@@ -11,6 +11,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.http import JsonResponse    
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.tokens import AccessToken
+from rest_framework_simplejwt.exceptions import InvalidToken
 
 
 
@@ -44,19 +45,26 @@ class UserView(viewsets.ModelViewSet):
 
     @action(detail=False,methods=['GET'],url_path='getcookie')
     def getcookie(self,request):
-        token = request.COOKIES.get('access_token')
-        if token:
-
+        refresh_token = request.COOKIES.get('refresh')
+        
+        if refresh_token:
             try:
-                access_token = AccessToken(token)
+                refresh = RefreshToken(refresh_token)
+                
+                access_token = refresh.access_token
+                
+                decoded_access_token = AccessToken(str(access_token))
+                
                 user = {
-                    'name': access_token['name'],
-                    'email':access_token['email']
+                    'name': decoded_access_token['name'],
+                    'email':decoded_access_token['email']
                 }
-                return JsonResponse({'name':user['name'],'email':access_token['email']},status=status.HTTP_200_OK)
+                
+                return JsonResponse(user,status=status.HTTP_200_OK)
+            except InvalidToken as e:
+                return JsonResponse({'error': 'Token inválido o expirado'}, status=status.HTTP_400_BAD_REQUEST)
             except Exception as e:
                 return JsonResponse({'error':str(e)},status=status.HTTP_400_BAD_REQUEST)
-            
         return JsonResponse({'name': '', 'email': ''}, status=status.HTTP_404_NOT_FOUND)
         
     @action(detail=False,methods=['POST'],url_path='login')
@@ -78,22 +86,21 @@ class UserView(viewsets.ModelViewSet):
                 access = serializer.validated_data['access']
 
 
-                refresh = RefreshToken.for_user(user)
-
+                #refresh = RefreshToken.for_user(user)
                 response = JsonResponse({
-                    'refresh' : str(refresh),
-                    'access': str(access)
+                    'name': user.name,
+                    'email': user.email
                 })
                 response.set_cookie(
-                         key='access_token',
-                         value=str(access),
+                         key='refresh',
+                         value=refresh,
                          httponly=False,
                          secure=True,
                          samesite='None',
                          max_age=60 * 60 * 60
                     )
-                
                 return response
+            
             else:
                 return HttpResponse('Contraseña incorrecta',status=status.HTTP_404_NOT_FOUND)
         except:
@@ -103,7 +110,8 @@ class UserView(viewsets.ModelViewSet):
     @action(detail=False,methods=['GET'],url_path='logout')
     def logout(self,request):
         resp = JsonResponse({'message':'Usuario cerro sesion'},status=status.HTTP_200_OK)
-        resp.delete_cookie('access_token')
+        resp.delete_cookie('refresh')
         return resp
     
+
     
