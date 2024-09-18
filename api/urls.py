@@ -8,6 +8,8 @@ from .views import MyTokenObtainPairView
 router = routers.DefaultRouter()
 
 router.register(r'users',views.UserView,'users')
+router.register(r'files',views.FileView,'files')
+
 urlpatterns = [
     path('api/v1/',include(router.urls)),
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),

@@ -40,7 +40,7 @@ export const getcookie = () =>{
         withCredentials: true 
     })
         .then((response) => {return response.data})
-        .catch((error) => { console.error(error.message)});
+        .catch((error) => { return error.status});
 }
 
 

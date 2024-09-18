@@ -9,9 +9,18 @@ import { get_cookie } from './store'
 export const App = () => {
 
    const dispatch = useDispatch()
-  useEffect(() => {
-   dispatch(get_cookie())
-  }, []) 
+   useEffect(() => {
+    
+    dispatch(get_cookie())
+
+    
+    const intervalId = setInterval(() => {
+      dispatch(get_cookie())
+    }, 300000)
+
+    
+    return () => clearInterval(intervalId)
+  }, [dispatch])
   
 
   return (

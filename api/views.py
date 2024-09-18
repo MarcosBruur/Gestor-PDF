@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import UserSerializer
-from .models import User
+from .serializers import UserSerializer,FileSerializer
+from .models import User,File
 from rest_framework.decorators import action
 from django.http.response import HttpResponse
 from rest_framework import status
@@ -9,7 +8,6 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.http import JsonResponse    
-from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework_simplejwt.exceptions import InvalidToken
 
@@ -114,4 +112,12 @@ class UserView(viewsets.ModelViewSet):
         return resp
     
 
-    
+
+class FileView(viewsets.ModelViewSet):
+    serializer_class = FileSerializer
+    queryset = File.objects.all()
+
+
+    @action(detail=False,methods=['POST'],url_path='upload')
+    def uploadFile(self,request):
+        pass

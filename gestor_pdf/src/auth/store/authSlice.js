@@ -2,6 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 import { loginUser,registerUser,logoutUser, get_cookie } from './Thunks';
 
 
+
+
 const initialState = {
     email: '',
     user_name:'',
@@ -80,11 +82,14 @@ export const authSlice = createSlice({
                 state.isAuthenticated = false;
             })
             .addCase(get_cookie.fulfilled,(state,action)=>{
-                const {name,email} = action.payload
-                state.user_name = name;
-                state.email = email;
-                state.isAuthenticated = true;
-                state.error = false;
+                if(action.payload){
+                    const {name = '',email = ''} = action.payload
+                    state.user_name = name
+                    state.email = email
+                    state.isAuthenticated = true
+                    state.error = false
+                }
+                
 
             })
             .addCase(get_cookie.rejected,() =>{
