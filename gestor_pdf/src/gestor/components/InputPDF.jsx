@@ -1,37 +1,24 @@
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addInCart } from '../store/gestorSlice'
 import { AgregarArchivo } from '../store/Thunks'
+import { addFile } from '../../api/files.api'
 
 
 export const InputPDF = () => {
 
     const { register, handleSubmit } = useForm()
-
+    const userEmail = useSelector(state => state.auth.email)
     const dispatch = useDispatch()
 
 
-    const onSubmit = handleSubmit((data) => {
-        console.log(data.file[0])
+    const onSubmit = handleSubmit(async (data) => {
         const formData = new FormData()
-        formData.append('pdf',data.file[0])
+        formData.append('file',data.file[0])
+        formData.append('user',userEmail)
+        const resp = await addFile(formData)
     })
         
-        /*formData.append('pdf_file', data.file[0])
-        fetch('http://localhost:8000/api/v1/files/', {
-            method: 'POST',
-            body: formData,
-        })
-            .then(response => {
-                if (!response.ok) {
-                    return response.text().then(text => { throw new Error(text) });
-                }
-                return response.json();
-            })
-            .then(result => console.log(result))
-            .catch(error => console.error('Error:', error));
-    }*/
-        //dispatch(AgregarArchivo(formData))
 
     return (
         <>

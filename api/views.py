@@ -10,7 +10,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.http import JsonResponse    
 from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework_simplejwt.exceptions import InvalidToken
-
+from rest_framework.parsers import MultiPartParser, FormParser
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -116,8 +116,32 @@ class UserView(viewsets.ModelViewSet):
 class FileView(viewsets.ModelViewSet):
     serializer_class = FileSerializer
     queryset = File.objects.all()
-
+    parser_classes = (MultiPartParser, FormParser)
 
     @action(detail=False,methods=['POST'],url_path='upload')
     def uploadFile(self,request):
-        pass
+        data = request.data
+
+        if not data:
+            return HttpResponse('No hay datos', status=status.HTTP_400_BAD_REQUEST)
+        
+        # Verifica si el archivo está en la solicitud
+        if 'file' not in request.FILES:
+            return HttpResponse('Archivo no proporcionado', status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            # Busca al usuario asociado por el campo 'user' en los datos
+            user = User.objects.get(email=data['user'])  # Suponiendo que se envía el email del usuario
+        except User.DoesNotExist:
+            return HttpResponse('Usuario no encontrado', status=status.HTTP_404_NOT_FOUND)
+
+        # Crear el objeto File
+        file_obj = File(
+            file=request.FILES['file'],
+            user=user
+        )
+        
+        # Guarda el archivo y los datos asociados
+        file_obj.save()
+
+        return JsonResponse({'message': 'Archivo subido exitosamente', 'file_name': file_obj.name}, status=status.HTTP_201_CREATED)

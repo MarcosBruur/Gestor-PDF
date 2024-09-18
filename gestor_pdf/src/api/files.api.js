@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-const baseURL = 'http://localhost:8000/api/v1/files/'
+const baseURL = 'http://localhost:8000/api/v1/files/upload/'
 
 
-export const addFile = (file) => {
-    return axios.post(baseURL, file)
-        .then((response) => { response.data() })
+export const addFile = (formData) => {
+    return axios.post(baseURL, formData)
+        .then((response) => {return response.data})
         .catch((error) => console.error(error))
 }
