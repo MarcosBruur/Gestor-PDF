@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import { RouterApp } from './router/RouterApp'
 import { get_cookie } from './store'
-
+import "./App.css"
 
 
 export const App = () => {
@@ -25,7 +25,7 @@ export const App = () => {
 
   return (
     <BrowserRouter>
-      <div className='bg-dark vh-100 text-white'>
+      <div className='inicio vh-100 text-white'>
         <RouterApp />
       </div>
     </BrowserRouter>

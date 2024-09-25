@@ -25,7 +25,10 @@ export const gestorSlice = createSlice({
             .addCase(AgregarArchivo.pending, (state) => {
                 state.is_sending = true;
             })
-            .addCase(AgregarArchivo.fulfilled, (state) => {
+            .addCase(AgregarArchivo.fulfilled, (state,action) => {
+                if(action.payload){
+                    state.in_cart++;
+                }
                 state.is_sending = false;
             })
             .addCase(AgregarArchivo.rejected, (state) => {

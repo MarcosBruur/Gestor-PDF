@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="BcqMmBPmyeGxW6_q_wifMnC_yPf7CselOmBq9U0znh4" />
+    <meta property="og:url"           content="http://planderechoshumanos.cl/" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Plan Nacional de Derechos Humanos" />
+    <meta property="og:image" content="http://planderechoshumanos.cl/images/book.png">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="xFdlNRLqudmRw9EtnGKSmNLT2xIYmPoxDnD5Mkd9">
+
+    <title>Plan Nacional de Derechos HumanosSSSSS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/iconos/favicon.ico"  />
+    <!-- Styles -->
+    <link href="https://localhost:8992/css/app.css" rel="stylesheet">
+
+    <meta name="theme-color" content="#E61E49">
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12&appId=142809559198039&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div id="app">
+    <header>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-9 col-sm-8 col-md-3 bicolor top">
+                    <span class="azul"></span>
+                    <span class="rojo"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <!-- Branding Image -->
+                    <div class="navbar-brand">
+                        <p>Ministerio de Justicia y Derechos Humanos</p>
+                        <!--<a href="https://localhost:8992">
+                            <img class="img-responsive logo"
+                                 src="/images/logo.png">
+                        </a> -->
+                        <!-- Collapsed Hamburger -->
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#app-navbar-collapse" aria-expanded="false">
+                            <span class="sr-only">Toggle Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-offset-1 col-sm-5 col-md-offset-4 col-md-4">
+                    <div class="social-icons">
+                        <div class="social-item"><a href="https://www.facebook.com/SubseDDHH" target="_blank" rel="nofollow"><img src="https://localhost:8992/images/icono_facebook.svg" alt=""></a></div>
+                        <div class="social-item"><a href="https://twitter.com/SubseDDHH" target="_blank" rel="nofollow"><img src="https://localhost:8992/images/icono_twitter.svg" alt=""></a></div>
+                        <div class="social-item"><a href="https://www.instagram.com/subsecretariaddhh/" target="_blank" rel="nofollow"><img src="https://localhost:8992/images/icono_instagram.svg" alt=""></a></div>
+                    </div>
+                    <!--<form action="/buscador" method="GET">
+                        <div class="form-group hidden-xs search">
+                            <input type="text" class="form-control input-lg" name="search"
+                                   value=""
+                                   placeholder="Ingrese un término de búsqueda">
+                            <i class="material-icons">search</i>
+                        </div>
+                    </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header"></div>
+
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <form action="/buscador" method="GET" class="visible-xs">
+                    <div class="form-group visible-xs search">
+                        <input type="text" class="form-control input-lg" name="search"
+                               value=""
+                               placeholder="Ingrese un término de búsqueda">
+                        <i class="material-icons">search</i>
+                    </div>
+                </form>
+
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="/">Inicio</a>
+                    </li>
+
+                    <!-- <li class="">
+                        <a href="https://localhost:8992/reporte-de-avance">Reporte de Avance</a>
+                    </li>
+                    
+                    <li class="dropdown ">
+                        <a href="https://localhost:8992/segundoplannacional">2° Plan Nacional de Derechos Humanos</a>
+                    </li>
+                    <li class="dropdown ">
+                        <a href="https://localhost:8992/pannacional">2° Plan de Acción Nacional de Derechos Humanos y Empresas</a>
+                    </li>
+                    -->
+                    <li class="dropdown ">
+                        <a href="/reporte-de-avance-new/1">Reporte de avance PNDH</a>
+                    </li>
+                    <li class="dropdown ">
+                        <a href="/reporte-de-avance-new/2">Reporte de avance PAN</a>
+                    </li>
+                    <li class="dropdown ">
+                        <a href="https://localhost:8992/documentacion">Documentación</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+    
+<div class="page-documentation">
+
+    <section class="gradiant white">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-10">
+                    <h3 class="neutro">PLANES NACIONALES DE DERECHOS HUMANOS</h3>
+                    <hr class="short-underline generic">
+                    A la Subsecretaría de Derechos Humanos le corresponde la elaboración, coordinación y evaluación de los siguientes planes:
+                    <br>
+                    •	Plan Nacional de Derechos Humanos
+                    <br>
+                    •	Plan de Acción Nacional de Derechos Humanos y Empresas
+                    <br>
+                    En este sitio podrás conocer estas políticas públicas y dar seguimiento a los compromisos del Estado en materia de derechos humanos.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section >
+        <img src="/images/home/inicio/banner1_03.jpg"  class="centrado">
+    </section>
+    <section class="gradiant white">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-10">
+                
+                    <h3 class="plannacional">Plan Nacional de Derechos Humanos</h3>
+                    <hr class="short-underline plan">
+                    <!--
+                    <div class="hearing">
+                        <i class="material-icons">hearing</i> <a class="spech" data-index="3" data-speak="false">escuchar</a>
+                    </div>
+                    -->
+                    <br>
+                    <div class="spech-3">
+                        <p>
+                        El plan Nacional de Derechos Humanos es una política pública que establece la ejecución de una serie de acciones concretas y medibles, dirigidas a mejorar el respeto, la promoción y protección de los derechos humanos.
+                        </p>
+                        <p>       
+                        Conforme el mandato legal, la Subsecretaría de Derechos Humanos debe elaborar, proponer y presentar el Plan Nacional de Derechos Humanos al Comité Interministerial de Derechos Humanos, entidad que presentará el Plan al Presidente de la República para su aprobación.
+                        </p>
+                        <p>
+                        El instrumento tiene una duración de cuatro años y contiene el diseño e implementación de las políticas encaminadas a respetar, promover y protegerlos derechos humanos. Se elabora considerando las recomendaciones de organismos nacionales e internacionales de derechos humanos, las prioridades sectoriales e intersectoriales de los diferentes servicios públicos y la opinión de la ciudadanía.
+                        </p>
+                    </div>
+
+
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        <b>2º Plan Nacional de Derechos Humanos</b>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <div class="row justify-content-around"> 
+                                        <div class="col text-center">
+                                            <img  id="imagen" src="/images/home/inicio/logos_07.png"> 
+                                        </div>
+                                    </div>
+                                    <p>
+                                        El Segundo Plan Nacional de Derechos Humanos (PNDH) 2022-2025, es un instrumento de política pública destinado a promover acciones para el ejercicio de los derechos de las personas que habitan el país, así como la incorporación transversal, en los distintos servicios públicos, del enfoque basado en los derechos humanos en los respectivos planes, acciones y programas.
+                                    </p>
+                                    <p>
+                                        <b>
+                                            El Segundo PNDH, fue aprobado por el Decreto Supremo el 18 de enero del 2023, y compromete un total de 185 acciones por 68 instituciones públicas, caracterizandose por:
+                                        </b>
+                                    </p>
+                                    <p>
+                                        <ul>
+                                            <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Fortalece la vinculación de acciones con el proceso participativo.&nbsp;</span></li>
+                                            <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Coordina el Segundo PNDH con otros Planes Nacionales</span></li>
+                                            <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Fortalece el diseño de compromisos intersectoriales</span></li>
+                                            <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Potencia la elaboración de compromisos de implementación descentralizada</span></li>
+                                            <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Incorpora enfoques en el proceso de elaboración y en los compromisos del plan</span></li>
+                                        </ul>
+                                    </p>
+                                    <a href="https://localhost:8992/doc/GEN/2do_PDDHH_2022_30ene2023.pdf" 
+                                    target="_blank" 
+                                    class="btn btn-block color-blue download">
+                                    <span class="button-icon">
+                                        <img src="/images/home/inicio/icono-1.png" widht="20px" >
+                                    </span> <span class="button-text"><span class="text">
+                                        2° Plan Nacional de Derechos Humanos
+                                    </span></span> <i class="pull-right material-icons green">arrow_downward</i></a>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        <b>1º Plan Nacional de Derechos Humanos</b>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div class="row justify-content-around"> 
+                                        <div class="col text-center">
+                                            <img  id="imagen" src="/images/home/inicio/logos_10.png"> 
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <p> El primer Plan Nacional de Derechos Humanos se elaboró en 2017 y se ha implementado entre 2018 y 2021. Este plan cuenta con 608 compromisos de más de 53 servicios públicos.</p>
+                                    <p> Semestralmente, los organismos públicos deben dar cuenta del avance en la implementación de sus compromisos, lo que se ha hecho en seis ocasiones.</p>
+                                    <p> La evaluación de los dos primeros años de su implementación fue realizada por una consultora externa. Este estudio se centró en un análisis sobre el proceso de elaboración del instrumento (fase de diseño); los resultados parciales alcanzados en este plazo (fase de implementación); y el seguimiento y monitoreo (fase seguimiento). En cada una de estas etapas se analizó de manera transversal las dimensiones de gobernanza y sostenibilidad; coordinación general; descentralización; comunicación y difusión; aplicación del enfoque basado en derechos humanos (EBDH); y recursos empleados. </p>
+                                    <p> Si quieres saber más sobre el primer Plane Nacional de Derechos Humanos, puedes revisar el resumen ejecutivo el informe final y su anexo</p>
+
+                                        -->
+                                        <p>
+                                            El primer Plan Nacional de Derechos Humanos se elaboró en 2017 y se implementó entre 2018 y 2021. Este plan cuenta con 608 compromisos de más de 53 servicios públicos.
+                                            Semestralmente, los organismos públicos dieron cuenta del avance en la implementación de sus compromisos, lo que se realizó en ocho ocasiones.
+                                            El primer Plan finalizó con 308 acciones reportadas como finalizadas con cumplimiento total y 154 finalizadas con cumplimiento parcial.  
+                                            Para conocer el primer Plan Nacional de Derechos Humanos, puedes revisar el documento a continuación 
+                                        </p>
+
+                                    <a href="https://localhost:8992/doc/GEN/PlanDDHH20182021.pdf" target="_blank" class="btn btn-block color-blue download">
+                                        <span class="button-icon">
+                                        <img src="/images/home/inicio/icono-1.png" widht="20px" >
+                                    </span> 
+                                        <span class="button-text"><span class="text">
+                                        1º Plan Nacional de Derechos Humanos
+                                    </span></span> <i class="pull-right material-icons green">arrow_downward</i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spech-3">
+                        <h3 class="plannacional">  Seguimiento y evaluación </h3>
+                        <h2> Seguimiento </h2>
+                        <p>
+                            El Plan Nacional de Derechos Humanos cuenta con un mecanismo de seguimiento, a través de coordinar el reporte con los demás Ministerios, requiriendo la información que le sea necesaria.
+                        </p>
+                        <p>
+                            En este sentido, la Subsecretaría de Derechos Humanos solicita información semestralmente a todos los Ministerios y Servicios, así como al resto de instituciones que comprometieron acciones en el PNDH, para hacer seguimiento al estado de avance de la implementación de dichas acciones. Esta información es puesta a disposición de la ciudadanía, a los fines de facilitar y promover el monitoreo de los distintos actores incumbentes respecto de la implementación del Plan Nacional de Derechos Humanos de nuestro país.
+                        </p>
+                        <p>    
+                            El seguimiento del PNDH se erige en torno a esta Plataforma digital pública que permite la actualización periódica de información sobre el cumplimiento de todos los indicadores considerados dentro del PNDH, en base a lo indicado por los organismos públicos involucrados en su implementación. 
+                        </p>
+                        <p>
+                            Como principal producto de dicha Plataforma, la Subsecretaría de Derechos Humanos emitirá un Reporte que dé cuenta de los resultados del ciclo de reporte.
+                            Puedes conocer los informes de seguimiento en la sección <a href="https://localhost:8992/documentacion" >Documentación</a>.
+                        </p>
+
+
+                        <h2> Evaluación del Plan Nacional de Derechos Humanos</h2>
+                        <p>El PNDH tiene un plazo de implementación de cuatro años y durante este período se realizará una evaluación intermedia y una evaluación final.</p>
+                        <p>La evaluación intermedia se desarrollará durante el 2024. La evaluación final se realizará una vez finalizados los cuatro años de implementación del Plan.</p>
+                        <p>Las evaluaciones serán desarrolladas por entidades externas e independientes.</p>
+                        <p>Puedes conocer los informes de evaluación en la sección <a href="https://localhost:8992/documentacion" >Documentación</a>.</p>
+
+
+
+                        <h3 class="plannacional">  Procesos Participativos</h3>
+                        <h2>Proceso participativo del Segundo Plan Nacional de Derechos Humanos  </h2>
+                        <p>En el marco de la elaboración del Segundo PNDH, se desarrollaron 5 modalidades de participación con el objetivo de incorporar a la sociedad civil y a la ciudadanía en su proceso de construcción a través de distintos canales. </p>
+                        <p>Estas modalidades de participación consideraron participación virtual abierta a la ciudadanía y encuentros temáticos, dirigidos a organizaciones de la sociedad civil. Asimismo, se consideró la participación de niñas, niños y adolescentes (NNA); personas privadas de libertad, y pueblos indígenas y tribales.</p>
+                        <p>Entre mayo a julio de 2021, se recogieron más de 4.500 opiniones y propuestas de más de 3.300 participantes.</p>
+                        <p>Durante el 2023, el Plan fue presentado a la sociedad civil, a través de 16 encuentros temáticos, con el objetivo de promover instancias de rendición de cuentas a la ciudadanía.</p>
+                        <p>Si deseas conocer más, revisa los Resultado <a href="https://sistematizacion-ddhh.netlify.app/"  target="_blank">Proceso Participativo por el segundo Plan Nacional de Derechos Humanos</a>.</p>
+
+                        <h2>Proceso participativo del Primer Plan Nacional de Derechos Humanos</h2>
+
+                        <p>Para la elaboración del Primer Plan Nacional de Derechos Humanos, la Subsecretaría de Derechos Humanos implementó 3 mecanismos de participación: i) 15 Diálogos regionales interculturales con organizaciones de sociedad civil; ii) Jornada con Pueblos Indígenas y Tribales, con representantes o miembros de comunidades pertenecientes a todos los pueblos originarios reconocidos por la Ley 19.253, y comunidades afrodescendientes, de distintas regiones del país; y iii) Consulta Digital, abierta a la participación de toda la ciudadanía. </p>
+                        <p>En las jornadas de diálogos participaron cerca de 470 personas, durante los meses de julio y agosto de 2017. </p>
+                        <p>Estos encuentros buscaron analizar las principales problemáticas de derechos humanos asociados a distintos temas o grupos vulnerados, y se priorizaron las recomendaciones de organismos internacionales de derechos humanos realizadas al Estado y del Instituto Nacional de Derechos Humanos, para ser abordadas a través del PNDH, en su primer ciclo de cuatro años.</p>
+                        <p>Puedes conocer los informes del proceso participativo en la sección <a href="https://localhost:8992/documentacion" >Documentación</a>.</p>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section >
+        <img src="/images/home/inicio/banner2_12.jpg"  class="centrado">
+    </section>
+    <section class="gradiant white">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-10">
+                    <h3 class="pannacional">Plan de Acción Nacional de Derechos Humanos y Empresas</h3>
+                    <hr class="short-underline pan">
+                    <!--
+                        <div class="hearing">
+                        <i class="material-icons">hearing</i> <a class="spech" data-index="2" data-speak="false">escuchar</a>
+                    </div>
+                    -->
+                    <br>
+                    <div class="spech-2">
+                        
+                        <p>
+                        Se trata de una política pública que establece una articulación de prioridades y acciones para implementar los Principios Rectores de Naciones Unidas sobre las Empresas y los Derechos Humanos, aprobados por el Consejo de Derechos Humanos en 2011, con el objeto de consolidar una cultura de respeto y promoción de los derechos humanos en la actividad empresarial.
+                        </p>
+                        <p>
+                        Estos principios se sustentan en tres pilares:
+                        <br>
+                        I.- El deber de los Estados de proteger los derechos humanos;
+                        <br>
+                        II.- La responsabilidad de las empresas de respetar los derechos humanos, mediante la debida diligencia en materia de derechos humanos;
+                        <br>
+                        III.- El deber de garantizar el acceso a mecanismos de reparación para las víctimas de abusos relacionados con la actividad de las empresas;
+                        </p>
+                        <p>
+                        La iniciativa es coordinada por el Ministerio de Justicia y Derechos Humanos, a través de la Subsecretaría de Derechos Humanos, desde 2019.
+                        </p>
+                    </div>
+
+
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingtree">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsetree" aria-expanded="true" aria-controls="collapsetree">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        <b>2º Plan Nacional de Derechos Humanos y Empresas</b>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsetree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    
+                                        <div class="row justify-content-around"> 
+                                            <div class="col text-center">
+                                                <img  id="imagen" src="/images/home/inicio/logos_16.png"> 
+                                            </div>
+                                        </div>
+                                        <p> El segundo Plan de Acción Nacional de Derechos Humanos y Empresas, es una política pública que establece la articulación de las prioridades y las acciones que se abordarán para implementar los Principios Rectores de Naciones Unidas sobre las Empresas y los Derechos Humanos.</p>
+                                        <p>El Plan de Acción Nacional de Derechos Humanos y Empresas 2022-2025, contempla la ejecución de: 58 acciones, comprometidas por 24 instituciones públicas, distribuidas en los tres pilares de los Principios Rectores sobre las Empresas y los Derechos Humanos de Naciones Unidas y seis ejes relacionados, promoviendo la existencia de diversos tipos de acciones en términos de su naturaleza:El Plan de Acción Nacional de Derechos Humanos y Empresas 2022-2025, contempla la ejecución de: 58 acciones, comprometidas por 24 instituciones públicas, distribuidas en los tres pilares de los Principios Rectores sobre las Empresas y los Derechos Humanos de Naciones Unidas y seis ejes relacionados, promoviendo la existencia de diversos tipos de acciones en términos de su naturaleza: </p>
+                                        <p>
+                                            <ul>
+                                                <li>Difusión y promoción,</li>
+                                                <li>Capacitación y formación,</li>
+                                                <li>Diseño, adopción y puesta en marcha de instrumentos,</li>
+                                                <li>Diagnósticos</li>
+                                                <li>Alianzas o convenios</li>
+                                            </ul>
+                                        </p>
+                                        <a href="https://localhost:8992/doc/GEN/2ºPAN_2022-2025-2.pdf" target="_blank" class="btn btn-block color-blue download"><span class="button-icon">
+                                            <img src="/images/home/inicio/icono-2.png" widht="20px" >
+                                        </span> <span class="button-text"><span class="text">
+                                            2° Plan de Acción Nacional de Derechos Humanos y Empresas
+                                        </span></span> <i class="pull-right material-icons green">arrow_downward</i></a>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingfour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                                        <i class="more-less glyphicon glyphicon-plus"></i>
+                                        <b>1º Plan Nacional de Derechos Humanos y Empresas</b>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapsefour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfour">
+                                <div class="panel-body">
+                                    <div class="row justify-content-around"> 
+                                        <div class="col text-center">
+                                            <img  id="imagen" src="/images/home/inicio/logo_20.png"> 
+                                        </div>
+                                    </div>
+                                    <p>El primer Plan de Acción Nacional fue lanzado oficialmente en agosto de 2017 y contempló la ejecución de 146 acciones distribuidas entre 17 instituciones públicas que asumieron compromisos en él, labor coordinada por el Ministerio de Relaciones Exteriores. Esta primera versión culminó el 31 de diciembre de 2020. De las 146 acciones comprometidas, 89 de ellas finalizaron cumplidas, equivalente a un 61% de cumplimiento del Plan.</p>
+                                    <p>Te invitamos a revisar el reporte finalización primera versión del Plan de Acción Nacional de Derechos Humanos y Empresas (abril 2021).</p>
+                                    <a href="https://localhost:8992/doc/GEN/Plan-Nacional-de-DDHH-y-Empresas.pdf" target="_blank" class="btn btn-block color-blue download"><span class="button-icon">
+                                        <img src="/images/home/inicio/icono-2.png" widht="20px" >
+                                    </span> 
+                                        <span class="button-text"><span class="text">
+                                       1° Plan Nacional de Derechos Humanos y Empresas
+                                    </span></span> <i class="pull-right material-icons green">arrow_downward</i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="spech-3">
+                        <h3 class="pannacional">  Seguimiento y evaluación </h3>
+                        <h2> Seguimiento </h2>
+                        <p>El Plan de Acción Nacional de Derechos Humanos y Empresas (PAN), al igual que el PNDH, cuenta con un mecanismo de seguimiento, en el que la Subsecretaría de Derechos Humanos requiere información semestralmente a todos los Ministerios que cuentan con acciones comprometidas en el PAN, con la finalidad de realizar un seguimiento y conocer el estado de avance de la implementación de dichas acciones. Esta información es puesta a disposición de la ciudadanía, a los fines de facilitar y promover el monitoreo de los distintos actores incumbentes respecto de la implementación del PAN de nuestro país.</p>
+                        <p>El seguimiento del PAN se realiza a través de esta Plataforma digital pública que, como se señaló anteriormente, permite la actualización periódica de información sobre el cumplimiento de todos los indicadores considerados dentro del PAN, en base a lo indicado por los organismos públicos involucrados en su implementación. </p>
+                        <p>Igualmente, una vez finalizado cada ciclo de reporte, la Subsecretaría de Derechos Humanos emitirá un Reporte que dé cuenta de los resultados del ciclo de reporte respectivo.</p>
+                        <p>Puedes conocer los informes de seguimiento en la sección <a href="https://localhost:8992/documentacion" > Documentación</a>.</p>
+                            
+                        <h2>Evaluación del PAN</h2>
+                        <p>Para una efectiva implementación del PAN como política pública, la Subsecretaría de Derechos Humanos ha considerado la necesidad de contar con una evaluación del PAN.</p>
+                        <p>El primer PAN contó con el Estudio de evaluación del Plan de Acción Nacional de Derechos Humanos y Empresas, que contó con la evaluación de la primera versión del Plan de Acción Nacional, una propuesta de mecanismos de participación ciudadana, y nuevas temáticas en materia de derechos humanos y empresas a considerar en la segunda versión. </p>
+                        <p>En la actual versión del PAN, se ha considerado una evaluación intermedia, que se desarrollará el 2024, y una evaluación final, una vez finalice el plazo de implementación del plan.</p>
+                        <p>Las evaluaciones serán desarrolladas por entidades externas e independientes.</p>
+                        <p>Puedes conocer los informes de evaluación en la sección <a href="https://localhost:8992/documentacion" > Documentación</a>.</p>
+
+
+                        <h3 class="pannacional">Procesos Participativos </h3>
+                        <h2>Proceso participativo Primer Plan de Acción Nacional de Derechos Humanos y Empresas </h2>
+                        <p>En el marco de la elaboración del Primer Plan de Acción Nacional de Derechos Humanos y Empresas, en julio de 2016, el Ministerio de Relaciones Exteriores llevó a cabo nueve jornadas realizadas en Antofagasta, San Pedro de Atacama, Santiago y Temuco.  </p>
+                        <p>Los encuentros dialogaron con empresas, sindicatos, organizaciones de la sociedad civil y comunidades indígenas para recoger opiniones y recomendaciones que aportaran al primer Plan de Acción, participando más de 360 personas.</p>
+                        <p>Puedes conocer los resultados de este proceso participativo en <a href="https://localhost:8992/documentacion" > Documentación</a>.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+</div>
+
+
+        <!-- 
+        <div class="page-documentation">
+            <section class="gradiant withe">
+                <div class="container">
+                <div class="row"> 
+
+                    
+
+
+                </div>
+                </div>
+            </section>
+            </div>
+        -->
+        
+
+    <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Subsecretaría de Derechos Humanos</h3>
+                <p>Morandé 107, Santiago - Teléfono (56-2) 26743100</p>
+                <a href="http://ddhh.minjusticia.gob.cl">http://ddhh.minjusticia.gob.cl :)</a>
+            </div>
+            <div class="col-md-6">
+                <!-- Login Clave Única -->
+                <div class="login-claveunica">
+                    <h3 class="mb-3">Acceso a instituciones</h3>
+<!--                    <a href="https://localhost:8992/login" class="login claveunica"> -->
+<!--                         <img src=https://localhost:8992/images/claveunica-large.png>-->
+<!--                    </a>-->
+
+                    <a class="btn-cu btn-m  btn-color-estandar" href="https://localhost:8992/login"
+                       title="Este es el botón Iniciar sesión de ClaveÚnica">
+                        <span class="cl-claveunica"></span>
+                        <span class="texto">Iniciar sesión</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <a target="_blank" href="http://ddhh.minjusticia.gob.cl">
+                    <img class="img-responsive" src="https://localhost:8992/images/logo chile-01.png">
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 bicolor">
+                <span class="azul"></span>
+                <span class="rojo"></span>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+
+<!-- Scripts -->
+<script src="https://localhost:8992/js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+    <script>
+        var synth = window.speechSynthesis;
+
+        var rate = 1.2;
+        var pitch = 0.5;
+        var voice = 31;
+        var voices = [];
+
+        $(document).ready(function () {
+            voices = synth.getVoices();
+        });
+
+        function speak(text) {
+            var utterThis = new SpeechSynthesisUtterance(text);
+            utterThis.pitch = pitch;
+            utterThis.rate = rate;
+            utterThis.voice = voices[voice];
+            synth.speak(utterThis);
+        }
+
+        function cancelAll() {
+            synth.cancel();
+            $('.spech').each(function (index, value) {
+                $(value).text('escuchar');
+                $(value).data('speak', false);
+            });
+        }
+
+        $(".spech").on('click', function () {
+            var reader = $(this).data('speak');
+            var index = $(this).data('index');
+            if (reader == false) {
+                //Cancelamos todos los que actualmente estan leyendo
+                cancelAll();
+
+                var text = $('.spech-' + index).text();
+                speak(text);
+                $(this).data('speak', true);
+                $(this).text('silenciar');
+            } else {
+                $(this).text('escuchar');
+                $(this).data('speak', false);
+                synth.cancel();
+            }
+        });
+
+    </script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111513789-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-111513789-1');
+</script>
+</body>
+</html>

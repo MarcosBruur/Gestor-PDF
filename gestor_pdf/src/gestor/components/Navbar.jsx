@@ -1,17 +1,20 @@
 import { useDispatch } from "react-redux"
 import { logoutUser } from "../../store"
 import { useSelector } from "react-redux"
+import { OffCanvas } from "./OffCanvas"
+
 
 export const Navbar = () => {
     const dispatch = useDispatch()
     const user_name = useSelector((state) => state.auth.user_name)
+    const items = useSelector((state) => state.gestor.in_cart)
 
     const logout = () => {
         dispatch(logoutUser())
     }
     return (
         <>
-            <div className="container-fluid text-white bg-light">
+            <div className="container-fluid text-white">
                 <div className="row d-flex justify-content-between text-black p-3">
                     <div className="col-auto">
                         <button className="btn btn-danger">
@@ -29,9 +32,16 @@ export const Navbar = () => {
                                 <button className="btn btn-danger">
                                     <h4>
                                         <i className="bi bi-cart"></i>
+                                        
                                     </h4>
+                                    
                                 </button>
+                                <span className="marcador position-absolute translate-middle badge rounded-pill">
+                                    {items}
+                                </span>
+
                             </div>
+                            
                             <div className="col">
                                 <button onClick={logout} className="btn btn-danger">
                                     <h4>
@@ -40,6 +50,7 @@ export const Navbar = () => {
                                 </button>
 
                             </div>
+                            
                         </div>
 
                     </div>

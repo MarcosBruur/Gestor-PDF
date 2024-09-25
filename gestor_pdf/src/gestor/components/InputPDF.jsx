@@ -16,7 +16,8 @@ export const InputPDF = () => {
         const formData = new FormData()
         formData.append('file',data.file[0])
         formData.append('user',userEmail)
-        const resp = await addFile(formData)
+        dispatch(AgregarArchivo(formData))
+
     })
         
 
@@ -25,14 +26,14 @@ export const InputPDF = () => {
             <div className="container mt-5 text-center">
                 <div className="row d-flex justify-content-center">
                     <div className="col-5">
-                        <form onSubmit={onSubmit}>
-                            <label className="mb-2 fw-bold">Ingresar archivo</label>
+                        <form className='formulario' onSubmit={onSubmit}>
+                            <label className="formulario__texto mb-2 text-dark">Ingresar archivo</label>
                             <input
                                 type="file"
                                 className="form-control"
                                 {...register("file")}
                             />
-                            <button type='submit' className='btn btn-lg btn-danger mt-3'>Aceptar</button>
+                            <button type='submit' className='btn btn-danger boton mt-3'>Aceptar</button>
                         </form>
                     </div>
                 </div>

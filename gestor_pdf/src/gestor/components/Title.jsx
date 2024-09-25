@@ -1,16 +1,18 @@
-import './styles/styles.css'
+
 
 export const Title = () => {
     return (
-        <div className="intro container bg bg-warning rounded d-flex justify-content-center align-items-center">
-            <div className="row d-block">
-                <div className="col d-flex justify-content-center ">
-                    <h1>Bienvenido </h1>
+        <>
+            
+                <div className="titulo contenedor rounded">
+                    <div className='contenido__titulo'>
+                        <h1>Bienvenido</h1>
+                        <h2>Sistema Gestor de Archivos</h2>
+                    </div>
                 </div>
-                <div className="col d-flex justify-content-center ">
-                    <h2>Sistema gestor de Archivos</h2>
-                </div>
-            </div>
-        </div>
+            
+
+        </>
+        
     )
 }
